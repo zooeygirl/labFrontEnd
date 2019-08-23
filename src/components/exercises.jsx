@@ -76,7 +76,8 @@ class Exercises extends Component {
                   <StarRatingComponent
                     name={e.shortTitle}
                     editing={false}
-                    value={averageRatings[e.shortTitle]}
+                    //value={averageRatings[e.shortTitle]}
+                    value={e.averageRating}
                   />
                 </td>
                 {this.props.user && (
