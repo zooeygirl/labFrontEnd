@@ -17,7 +17,7 @@ export async function updateStudent(studentId, data) {
 }
 
 export async function updateExerciseRatings(studentId, data) {
-  return await http.put(apiEndPoint + "students/" + studentId, data);
+  return await http.put(apiEndPoint + studentId, data);
 }
 
 export async function newStudent(data) {
