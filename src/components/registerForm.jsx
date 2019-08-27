@@ -7,11 +7,12 @@ import Joi from "joi-browser";
 class registerForm extends Component {
   state = {
     account: {
-      username: "Guillaume",
-      password: "12345",
+      firstname: "",
+      lastname: "",
+      password: "",
       email: "g@gmail.com",
       role: "Student",
-      adminPassword: "coconutz",
+      adminPassword: "",
       teacher: ""
     },
     roleOptions: ["Tutor", "Teacher", "Student"],
@@ -20,9 +21,12 @@ class registerForm extends Component {
   };
 
   schema = {
-    username: Joi.string()
+    firstname: Joi.string()
       .required()
-      .label("Username"),
+      .label("Firstname"),
+    lastname: Joi.string()
+      .required()
+      .label("Lastname"),
     role: Joi.string()
       .required()
       .label("Role"),
@@ -65,7 +69,7 @@ class registerForm extends Component {
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
-        errors.username = ex.response.data;
+        errors.firstname = ex.response.data;
         this.setState({ errors });
       }
     }
@@ -112,12 +116,20 @@ class registerForm extends Component {
         {account.teacher}
         <form onSubmit={this.handleSubmit}>
           <Input
-            name="username"
+            name="firstname"
             value={account.username}
-            label="Username"
+            label="First name"
             type="text"
             onChange={this.handleChange}
-            error={this.state.errors.username}
+            error={this.state.errors.firstname}
+          />
+          <Input
+            name="lastname"
+            value={account.username}
+            label="Last name"
+            type="text"
+            onChange={this.handleChange}
+            error={this.state.errors.lastname}
           />
           <Select
             name="role"

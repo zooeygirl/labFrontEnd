@@ -90,7 +90,7 @@ class Students extends Component {
       : this.state.stu;
     const searchFiltered =
       searchValue !== ""
-        ? filtered.filter(s => s.username.toLowerCase().includes(searchValue))
+        ? filtered.filter(s => s.firstname.toLowerCase().includes(searchValue))
         : filtered;
 
     return (
@@ -107,7 +107,8 @@ class Students extends Component {
         <table className="table">
           <thead>
             <tr>
-              <td>Student</td>
+              <td>First Name</td>
+              <td>Last Name</td>
               <td>Teacher</td>
               {this.state.exercises.map(e => (
                 <td key={e}>{e}</td>
@@ -117,9 +118,12 @@ class Students extends Component {
           </thead>
           <tbody>
             {searchFiltered.map(s => (
-              <tr key={s.username}>
+              <tr key={s.firstname}>
                 <td>
-                  <Link to={`/student/${s._id}`}>{s.username}</Link>
+                  <Link to={`/student/${s._id}`}>{s.firstname}</Link>
+                </td>
+                <td>
+                  <Link to={`/student/${s._id}`}>{s.lastname}</Link>
                 </td>
                 <td onClick={() => this.handleTeacherSelect(s.teacher)}>
                   {s.teacher}
