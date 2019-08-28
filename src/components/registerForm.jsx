@@ -10,7 +10,7 @@ class registerForm extends Component {
       firstname: "",
       lastname: "",
       password: "",
-      email: "g@gmail.com",
+      email: "",
       role: "Student",
       adminPassword: "",
       teacher: ""
@@ -41,7 +41,9 @@ class registerForm extends Component {
     teacher: Joi.string()
       .min(0)
       .label("Teacher"),
-    adminPassword: Joi.string().label("adminPassword")
+    adminPassword: Joi.string()
+      .allow("")
+      .label("adminPassword")
   };
 
   validate = () => {
@@ -58,7 +60,7 @@ class registerForm extends Component {
     e.preventDefault();
 
     const errors = this.validate();
-    //console.log(errors);
+    console.log(errors);
     this.setState({ errors: errors || {} });
     if (errors) return;
 
@@ -117,7 +119,7 @@ class registerForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <Input
             name="firstname"
-            value={account.username}
+            value={account.firstname}
             label="First name"
             type="text"
             onChange={this.handleChange}
@@ -125,7 +127,7 @@ class registerForm extends Component {
           />
           <Input
             name="lastname"
-            value={account.username}
+            value={account.lastname}
             label="Last name"
             type="text"
             onChange={this.handleChange}
