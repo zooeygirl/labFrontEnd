@@ -1,5 +1,5 @@
 import http from "./httpService";
-
+const _ = require("lodash");
 const apiEndPoint = "/students/";
 
 export function getStudents() {
@@ -17,7 +17,10 @@ export async function updateStudent(studentId, data) {
 }
 
 export async function updateExerciseRatings(studentId, data) {
-  return await http.put(apiEndPoint + "exercises/" + studentId, data);
+  return await http.put(
+    apiEndPoint + "exercises/" + studentId,
+    _.pick(data, ["id", "exerciseRatings"])
+  );
 }
 
 export async function newStudent(data) {
