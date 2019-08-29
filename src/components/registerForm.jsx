@@ -3,6 +3,7 @@ import Input from "../components/common/input";
 import Select from "../components/common/select";
 import * as userService from "../services/userService";
 import Joi from "joi-browser";
+import { getTeachers } from "../services/teacherService";
 
 class registerForm extends Component {
   state = {
@@ -19,6 +20,11 @@ class registerForm extends Component {
     teacherOptions: ["", "Brooke", "Erin", "Jane"],
     errors: {}
   };
+
+  async componentDidMount() {
+    const { data: teachers } = await getTeachers();
+    this.setState({ teacherOptions: teachers });
+  }
 
   schema = {
     firstname: Joi.string()
