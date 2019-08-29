@@ -23,7 +23,7 @@ class registerForm extends Component {
 
   async componentDidMount() {
     const { data: teachers } = await getTeachers();
-    this.setState({ teacherOptions: teachers });
+    this.setState({ teacherOptions: teachers.map(t => t.lastname) });
   }
 
   schema = {
