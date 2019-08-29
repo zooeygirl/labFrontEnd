@@ -6,7 +6,7 @@ class TeacherNavBar extends Component {
 
   async componentDidMount() {
     const { data: teachers } = await getTeachers();
-    this.setState({ teachers });
+    this.setState({ teachers: teachers.map(t => t.lastname) });
   }
 
   render() {
