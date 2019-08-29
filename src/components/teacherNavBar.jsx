@@ -21,7 +21,7 @@ class TeacherNavBar extends Component {
                 className="nav-item nav-link"
                 to="/"
               >
-                {t.username}
+                {t.lastname}
               </Link>
             ))}
             <Link
