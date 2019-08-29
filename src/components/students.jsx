@@ -57,7 +57,7 @@ class Students extends Component {
 
   handleSearch(event) {
     console.log(event.target.value);
-    this.setState({ searchValue: event.target.value });
+    this.setState({ searchValue: event.target.value.toLowerCase() });
   }
 
   handleDelete = async student => {
@@ -90,7 +90,11 @@ class Students extends Component {
       : this.state.stu;
     const searchFiltered =
       searchValue !== ""
-        ? filtered.filter(s => s.firstname.toLowerCase().includes(searchValue))
+        ? filtered.filter(
+            s =>
+              s.firstname.toLowerCase().includes(searchValue) +
+              s.lastname.toLowerCase().includes(searchValue)
+          )
         : filtered;
 
     return (
