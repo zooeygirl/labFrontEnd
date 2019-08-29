@@ -5,7 +5,8 @@ class Student extends Component {
   state = {
     _id: this.props.match.params.id,
 
-    name: "",
+    firstname: "",
+    lastname: "",
     teacher: "",
     completed: [],
     dateCompleted: [],
@@ -15,7 +16,8 @@ class Student extends Component {
   async componentDidMount() {
     const { data } = await getStudent(this.state._id);
     this.setState({
-      name: data.name,
+      firstname: data.firstname,
+      lastname: data.lastname,
       teacher: data.teacher,
       completed: data.completed,
       dateCompleted: data.dateCompleted,
@@ -29,7 +31,8 @@ class Student extends Component {
       <div>
         <h1>Student</h1>
         <div>Path: {this.props.match.params.id}</div>
-        <p>Student: {this.state.name}</p>
+        <p>Student First Name: {this.state.firstname}</p>
+        <p>Student Last Name: {this.state.lastname}</p>
         <p>Teacher: {this.state.teacher}</p>
         <table className="table">
           <tbody>

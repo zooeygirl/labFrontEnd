@@ -12,7 +12,11 @@ class Tutor extends Component {
 
   componentDidMount() {
     const user = auth.getCurrentUser();
-    if (user) this.setState({ name: user.username, isAdmin: user.isAdmin });
+    if (user)
+      this.setState({
+        name: user.firstname + " " + user.lastname,
+        isAdmin: user.isAdmin
+      });
   }
 
   render() {

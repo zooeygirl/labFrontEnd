@@ -6,8 +6,6 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from "react-router-dom";
 
-console.log("Superman", process.env.REACT_APP_NAME);
-
 ReactDOM.render(
   <BrowserRouter>
     <App />
