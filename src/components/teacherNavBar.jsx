@@ -6,7 +6,7 @@ class TeacherNavBar extends Component {
 
   async componentDidMount() {
     const { data: teachers } = await getTeachers();
-    this.setState({ teachers: teachers.map(t => t.lastname) });
+    this.setState({ teachers });
   }
 
   render() {
@@ -17,7 +17,7 @@ class TeacherNavBar extends Component {
             {this.state.teachers.map((t, index) => (
               <Link
                 key={index}
-                onClick={() => this.props.onClick(t.username)}
+                onClick={() => this.props.onClick(t)}
                 className="nav-item nav-link"
                 to="/"
               >

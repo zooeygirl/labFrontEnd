@@ -24,7 +24,7 @@ class registerForm extends Component {
   async componentDidMount() {
     const { data: teachers } = await getTeachers();
     this.setState({
-      teacherOptions: teachers.map(t => t.lastname).unshift("")
+      teacherOptions: teachers.unshift("")
     });
   }
 
