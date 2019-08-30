@@ -3,7 +3,7 @@ import { getStudent } from "../services/studentService";
 
 class Student extends Component {
   state = {
-    _id: this.props.match.params.id,
+    _id: this.props.match.params._id,
 
     firstname: "",
     lastname: "",
