@@ -16,6 +16,7 @@ export async function updateStudent(studentId, data) {
   return await http.put(
     apiEndPoint + studentId,
     _.pick(data, [
+      "id",
       "firstname",
       "lastname",
       "exerciseRatings",
