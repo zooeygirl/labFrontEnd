@@ -29,7 +29,7 @@ class Students extends Component {
   async logClick(sId, idx) {
     console.log(this.state.selectedExercise);
     const studentsCopy = { ...this.state };
-    const student = await studentsCopy.stu.find(s => s._id === sId);
+    const student = await studentsCopy.stu.find(s => s.id === sId);
     if (student.completed.length <= 6) {
       student.completed.push(this.state.selectedExercise);
       student.dateCompleted.push(new Date().toDateString());
