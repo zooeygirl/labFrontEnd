@@ -29,7 +29,7 @@ class Students extends Component {
   async logClick(sId, idx) {
     console.log(this.state.selectedExercise);
     const studentsCopy = { ...this.state };
-    const student = await studentsCopy.stu.find(s => s.id === sId);
+    const student = await studentsCopy.stu.find(s => s._id === sId);
     if (student.completed.length <= 6) {
       student.completed.push(this.state.selectedExercise);
       student.dateCompleted.push(new Date().toDateString());
@@ -47,7 +47,7 @@ class Students extends Component {
 
   handleSelectExercise = async (student, exercise) => {
     await this.setState({ selectedExercise: exercise.index });
-    this.logClick(student.student._id, exercise.index);
+    this.logClick(student._id, exercise.index);
   };
 
   handleTeacherSelect = teacher => {
@@ -122,7 +122,7 @@ class Students extends Component {
           </thead>
           <tbody>
             {searchFiltered.map(s => (
-              <tr key={s.firstname}>
+              <tr key={s._id}>
                 <td>
                   <Link to={`/student/${s._id}`}>{s.firstname}</Link>
                 </td>
