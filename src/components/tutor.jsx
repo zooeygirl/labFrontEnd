@@ -26,7 +26,6 @@ class Tutor extends Component {
         <h1>Lab Exercises</h1>
         Current user: {name}
         <br />
-        Is Admin? : {isAdmin ? "True" : "False"}
         <Students currentUser={name} userStatus={isAdmin} />
         {/* <Iframe
           src="https://quizlet.com/50105048/match/embed?i=8juvd&x=1jj1"

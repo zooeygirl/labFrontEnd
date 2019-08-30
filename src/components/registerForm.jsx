@@ -17,7 +17,7 @@ class registerForm extends Component {
       teacher: ""
     },
     roleOptions: ["Tutor", "Teacher", "Student"],
-    teacherOptions: ["", "Brooke", "Erin", "Jane"],
+    teacherOptions: [""],
     errors: {}
   };
 
@@ -123,7 +123,7 @@ class registerForm extends Component {
     return (
       <div>
         <h1>Register</h1>
-        {account.teacher}
+
         <form onSubmit={this.handleSubmit}>
           <Input
             name="firstname"
@@ -141,6 +141,7 @@ class registerForm extends Component {
             onChange={this.handleChange}
             error={this.state.errors.lastname}
           />
+          <div>Role</div>
           <Select
             name="role"
             value={account.role}
@@ -159,6 +160,7 @@ class registerForm extends Component {
                 onChange={this.handleChange}
               />
             ) : null}
+            <div>Teacher</div>
             {account.role === "Student" ? (
               <Select
                 name="teacher"
