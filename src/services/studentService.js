@@ -13,7 +13,17 @@ export function deleteStudent(studentId) {
 }
 
 export async function updateStudent(studentId, data) {
-  return await http.put(apiEndPoint + studentId, _.pick(data, ["firstname", "lastname", "exerciseRatings", "completed", "dateCompleted", "validatedBy"]);
+  return await http.put(
+    apiEndPoint + studentId,
+    _.pick(data, [
+      "firstname",
+      "lastname",
+      "exerciseRatings",
+      "completed",
+      "dateCompleted",
+      "validatedBy"
+    ])
+  );
 }
 
 export async function updateExerciseRatings(studentId, data) {
