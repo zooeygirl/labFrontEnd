@@ -47,7 +47,7 @@ class Students extends Component {
 
   handleSelectExercise = async (student, exercise) => {
     await this.setState({ selectedExercise: exercise.index });
-    this.logClick(student._id, exercise.index);
+    this.logClick(student.student._id, exercise.index);
   };
 
   handleTeacherSelect = teacher => {
