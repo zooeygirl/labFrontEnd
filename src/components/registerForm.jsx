@@ -24,7 +24,7 @@ class registerForm extends Component {
   async componentDidMount() {
     const { data: teachers } = await getTeachers();
     this.setState({
-      teacherOptions: teachers
+      teacherOptions: [""].concat(teachers)
     });
   }
 
@@ -47,7 +47,7 @@ class registerForm extends Component {
       .email()
       .label("Email"),
     teacher: Joi.string()
-      .min(0)
+      .min(1)
       .label("Teacher"),
     adminPassword: Joi.string()
       .allow("")
