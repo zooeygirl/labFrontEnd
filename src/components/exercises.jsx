@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import StarRatingComponent from "react-star-rating-component";
 import { updateExerciseRatings, getStudent } from "../services/studentService";
 import { getExerciseRatingAverages } from "../services/userService";
-//import { getExercises } from "../services/exerciseService";
 
 class Exercises extends Component {
   state = { exercises: [], ratings: {}, averageRatings: {} };
@@ -76,8 +75,7 @@ class Exercises extends Component {
                   <StarRatingComponent
                     name={e.shortTitle}
                     editing={false}
-                    //value={averageRatings[e.shortTitle]}
-                    value={e.averageRating}
+                    value={averageRatings[e.shortTitle]}
                   />
                 </td>
                 {this.props.user && (

@@ -13,7 +13,7 @@ class registerForm extends Component {
       password: "",
       email: "",
       role: "Student",
-      adminPassword: "",
+      adminPassword: "password",
       teacher: ""
     },
     roleOptions: ["Tutor", "Teacher", "Student"],
