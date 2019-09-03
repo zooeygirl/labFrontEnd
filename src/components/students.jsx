@@ -32,7 +32,7 @@ class Students extends Component {
     const student = await studentsCopy.stu.find(s => s._id === sId);
     if (student.completed.length <= 6) {
       student.completed.push(this.state.selectedExercise);
-      student.dateCompleted.push(new Date().toDateString());
+      student.dateCompleted.push(new Date().toLocaleDateString("fr-FR"));
       student.validatedBy.push(this.props.currentUser);
 
       try {
