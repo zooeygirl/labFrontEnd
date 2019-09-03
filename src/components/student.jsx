@@ -14,7 +14,7 @@ class Student extends Component {
   };
 
   async componentDidMount() {
-    const { data } = await getStudent(this.state._id);
+    const data = await getStudent(this.state._id);
     console.log(data);
     this.setState({
       firstname: data.firstname,
